@@ -1,32 +1,15 @@
-function loadingData(){
-
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log("1) Loading")
-            resolve();
-        }, 2000)
-    })
-    
-}
-function collectingData(){
-    console.log("2) Loading")
-}
-function approvingData(){
-    console.log("3) Approving")
-}
-function approved(){
-    console.log("4) Approved")
+function Person(name, age){
+    let person = Object.create(obj)
+    person.name = name;
+    person.age = age;
+    return person
 }
 
-// loadingData().then(collectingData())
-// approvingData()
-// approved()
-
-async function run(){
-    await loadingData();
-    await collectingData();
-    await approvingData();
-    await approved();
+var obj = {
+    greet(){
+        console.log('Hello $(this.name)')
+    }
 }
-
-run();
+let user = Person ("John", 8)
+user.greet()
+console.log(user)
