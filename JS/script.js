@@ -1,15 +1,21 @@
-function Person(name, age){
-    let person = Object.create(obj)
-    person.name = name;
-    person.age = age;
-    return person
+//promise
+
+function fun(task){
+    return new Promise((resolve, reject) =>{
+        if(task){
+            resolve(1)
+        }
+        else{
+            reject(2)
+        }
+    })
 }
 
-var obj = {
-    greet(){
-        console.log('Hello $(this.name)')
-    }
+let onResolve = (res) => {
+    console.log(res);
 }
-let user = Person ("John", 8)
-user.greet()
-console.log(user)
+let onReject = (err) => {
+    console.log(err)
+}
+
+fun(true).then(onResolve).catch(onReject);
