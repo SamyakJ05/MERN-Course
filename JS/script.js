@@ -1,21 +1,32 @@
-//promise
+function loadingData(){
 
-function fun(task){
-    return new Promise((resolve, reject) =>{
-        if(task){
-            resolve(1)
-        }
-        else{
-            reject(2)
-        }
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log("1) Loading")
+            resolve();
+        }, 2000)
     })
+    
+}
+function collectingData(){
+    console.log("2) Loading")
+}
+function approvingData(){
+    console.log("3) Approving")
+}
+function approved(){
+    console.log("4) Approved")
 }
 
-let onResolve = (res) => {
-    console.log(res);
-}
-let onReject = (err) => {
-    console.log(err)
+// loadingData().then(collectingData())
+// approvingData()
+// approved()
+
+async function run(){
+    await loadingData();
+    await collectingData();
+    await approvingData();
+    await approved();
 }
 
-fun(true).then(onResolve).catch(onReject);
+run();
